@@ -1,0 +1,72 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zimo</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .btn-custom {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center">
+      <h1 class="mb-4">Zammit Team Notifications</h1>
+      <p class="lead mb-4">
+        Click the button to notify your team of the newest updates
+      </p>
+      <form action="/send-notification" method="POST">
+        <button type="submit" class="btn btn-lg btn-custom">
+          Send Notification
+        </button>
+      </form>
+
+      <!-- Bootstrap Alert -->
+      <div
+        id="alertMessage"
+        class="alert alert-success mt-4"
+        style="display: none"
+      >
+        Notification sent successfully!
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript to show/hide alert -->
+    <script>
+      // Wait for the document to load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Show the alert when the form is submitted
+        document
+          .querySelector("form")
+          .addEventListener("submit", function (event) {
+            console.log("Form submitted");
+            event.preventDefault(); // Prevent the form from submitting normally
+            document.getElementById("alertMessage").style.display = "block"; // Show the alert
+            setTimeout(function () {
+              document.getElementById("alertMessage").style.display = "none"; // Hide the alert after 3 seconds
+            }, 3000); // 3000 milliseconds = 3 seconds
+          });
+      });
+    </script>
+  </body>
+</html>
