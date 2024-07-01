@@ -1,0 +1,7 @@
+Flask
+google-auth  # Use google-auth instead of oauth2client
+gspread==4.0.1
+slack-sdk==3.10.1
+python-dotenv==0.19.1
+oauth2client
+gunicorn

@@ -88,6 +88,6 @@ def execute_periodically():
             time.sleep(60)  # Sleep longer on error to avoid rapid retries
 
 if __name__ == '__main__':
-    execute_periodically()
+    # execute_periodically()
     # Uncomment the line below if you want to run the Flask app concurrently
-    # app.run(debug=False)
+    app.run(debug=False)
